@@ -1,0 +1,33 @@
+<div class="container mt-5">
+
+  <h1><%= @job.title %></h1>
+
+  <p><%= @job.full_details %></p>
+
+  <p><strong>Salary:</strong> <%= @job.salary_info %></p>
+
+  <p><strong>Description:</strong> <%= @job.description %></p>
+<%= link_to "Apply for Job", new_job_application_path(@job), class: "btn btn-success mt-3" %>
+  <a href="/jobs" class="btn btn-secondary">Back</a>
+ <h3 class="mt-4">Applications</h3>
+
+<% if @job.applications.any? %>
+
+  <% @job.applications.each do |app| %>
+
+    <div class="card p-3 mb-2">
+      <p>
+        <strong>Name:</strong> <%= app.name %><br>
+        <strong>Email:</strong> <%= app.email %>
+      </p>
+    </div>
+
+  <% end %>
+
+<% else %>
+
+  <p>No applications yet.</p>
+
+<% end %>
+
+</div>

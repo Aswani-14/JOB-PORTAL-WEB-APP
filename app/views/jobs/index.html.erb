@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Available Jobs</h1>
+
+  <%= link_to "Add New Job", new_job_path, class: "btn btn-success mb-4" %>
+
+  <% @jobs.each do |job| %>
+    <div class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <h3><%= job.title %></h3>
+        <p><strong>Company:</strong> <%= job.company %></p>
+        <p><strong>Location:</strong> <%= job.location %></p>
+        <p><strong>Salary:</strong> <%= job.salary %></p>
+
+        <%= link_to "View", job_path(job), class: "btn btn-primary" %>
+        <%= link_to "Edit", edit_job_path(job), class: "btn btn-warning" %>
+        <%= link_to "Delete", job_path(job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>

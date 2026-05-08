@@ -1,0 +1,26 @@
+<div class="container mt-5">
+
+  <h2>Apply for <%= @job.title %></h2>
+
+  <%= form_with model: [@job, @application], local: true do |f| %>
+
+    <div class="mb-3">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :resume %>
+      <%= f.file_field :resume, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Submit Application", class: "btn btn-primary" %>
+
+  <% end %>
+
+</div>
